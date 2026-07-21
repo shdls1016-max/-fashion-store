@@ -13,7 +13,7 @@
   <div class="announcement" module="Layout_statelogon">Complimentary shipping on orders over ₩100,000</div>
   <header class="site-header" module="Layout_header">
     <div class="site-header__main">
-      <button class="site-header__mobile-button" aria-label="메뉴 열기"><i class="fa-solid fa-bars"></i></button>
+      <button class="site-header__mobile-button" aria-label="메뉴 열기" aria-controls="mobile-menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
       <nav class="site-header__nav" aria-label="주요 메뉴">
         <a class="site-header__nav-link is-active" href="index.html">New</a>
         <a class="site-header__nav-link" href="product_list.html">Shop</a>
@@ -28,7 +28,7 @@
       </div>
     </div>
   </header>
-  <aside class="mobile-menu" aria-label="모바일 메뉴">
+  <aside class="mobile-menu" id="mobile-menu" aria-label="모바일 메뉴" aria-hidden="true">
     <button class="mobile-menu__close" aria-label="메뉴 닫기">×</button>
     <a class="mobile-menu__link" href="index.html">New</a><a class="mobile-menu__link" href="product_list.html">Shop</a><a class="mobile-menu__link" href="lookbook.html">Editorial</a><a class="mobile-menu__link" href="mypage.html">My Élane</a>
   </aside>

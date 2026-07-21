@@ -120,11 +120,27 @@ document.addEventListener('DOMContentLoaded', function () {
   var menu = q('.mobile-menu');
   function toggleMenu(open) {
     if (!menu) return;
+    var body = document.body;
+
+    if (open && !body.classList.contains('is-locked')) {
+      var widthBeforeLock = document.documentElement.clientWidth;
+      body.classList.add('is-locked');
+      var widthAfterLock = document.documentElement.clientWidth;
+      body.style.setProperty('--scrollbar-compensation', Math.max(0, widthAfterLock - widthBeforeLock) + 'px');
+    } else if (!open) {
+      body.classList.remove('is-locked');
+      body.style.removeProperty('--scrollbar-compensation');
+    }
+
     menu.classList.toggle('is-open', open);
-    document.body.classList.toggle('is-locked', open);
+    menu.setAttribute('aria-hidden', String(!open));
+    if (menuOpen) menuOpen.setAttribute('aria-expanded', String(open));
   }
   var menuOpen = q('.site-header__mobile-button');
   var menuClose = q('.mobile-menu__close');
   if (menuOpen) menuOpen.addEventListener('click', function () { toggleMenu(true); });
   if (menuClose) menuClose.addEventListener('click', function () { toggleMenu(false); });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && menu && menu.classList.contains('is-open')) toggleMenu(false);
+  });
 });
