@@ -14,15 +14,29 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
     var index = 0;
     banner.setAttribute('aria-live', 'polite');
-    banner.innerHTML = '<span class="announcement__message">' + messages[0] + '</span><button class="announcement__close" type="button" aria-label="상단 배너 닫기">×</button>';
-    var message = q('.announcement__message', banner);
+    banner.innerHTML = '<span class="announcement__viewport"><span class="announcement__message is-current">' + messages[0] + '</span></span><button class="announcement__close" type="button" aria-label="상단 배너 닫기">×</button>';
+    var viewport = q('.announcement__viewport', banner);
+    var isAnimating = false;
     var rotation = window.setInterval(function () {
-      banner.classList.add('is-changing');
+      if (isAnimating) return;
+      isAnimating = true;
+      var current = q('.announcement__message.is-current', viewport);
+      var next = document.createElement('span');
+      next.className = 'announcement__message is-next';
+      next.textContent = messages[(index + 1) % messages.length];
+      viewport.appendChild(next);
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          current.classList.add('is-leaving');
+          next.classList.add('is-entering');
+        });
+      });
       window.setTimeout(function () {
         index = (index + 1) % messages.length;
-        message.textContent = messages[index];
-        banner.classList.remove('is-changing');
-      }, 180);
+        current.remove();
+        next.className = 'announcement__message is-current';
+        isAnimating = false;
+      }, 720);
     }, 4200);
     q('.announcement__close', banner).addEventListener('click', function () {
       window.clearInterval(rotation);
