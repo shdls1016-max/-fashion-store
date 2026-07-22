@@ -4,6 +4,34 @@ document.addEventListener('DOMContentLoaded', function () {
   var qa = function (selector, context) { return Array.prototype.slice.call((context || document).querySelectorAll(selector)); };
   var store = window.ElaneStore;
 
+  function initAnnouncement() {
+    var banner = q('.announcement');
+    if (!banner) return;
+    var messages = [
+      'Complimentary shipping on orders over ₩100,000',
+      'New members enjoy 10% off the first order',
+      'Same-day dispatch on orders placed before 1 PM'
+    ];
+    var index = 0;
+    banner.setAttribute('aria-live', 'polite');
+    banner.innerHTML = '<span class="announcement__message">' + messages[0] + '</span><button class="announcement__close" type="button" aria-label="상단 배너 닫기">×</button>';
+    var message = q('.announcement__message', banner);
+    var rotation = window.setInterval(function () {
+      banner.classList.add('is-changing');
+      window.setTimeout(function () {
+        index = (index + 1) % messages.length;
+        message.textContent = messages[index];
+        banner.classList.remove('is-changing');
+      }, 180);
+    }, 4200);
+    q('.announcement__close', banner).addEventListener('click', function () {
+      window.clearInterval(rotation);
+      banner.hidden = true;
+      document.documentElement.classList.add('is-announcement-closed');
+    });
+  }
+  initAnnouncement();
+
   function toast(message) {
     var element = q('.store-toast');
     if (!element) {
@@ -235,8 +263,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }).join('');
     var empty = q('[data-cart-empty]');
     if (empty) empty.hidden = items.length > 0;
-    var table = q('[data-cart-table]');
-    if (table) table.hidden = items.length === 0;
+    var content = q('[data-cart-content]');
+    if (content) content.hidden = items.length === 0;
     qa('[data-cart-subtotal]').forEach(function (element) { element.textContent = store.money(subtotal); });
     var shipping = subtotal === 0 || subtotal >= 100000 ? 0 : 3000;
     var shippingElement = q('[data-cart-shipping]');
