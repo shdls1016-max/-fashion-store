@@ -21,16 +21,16 @@
       </nav>
       <a class="site-header__logo" href="index.html">ÉLANE</a>
       <div class="site-header__utils">
-        <button class="site-header__util" module="Layout_SearchHeaderForm" aria-label="검색"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <a class="site-header__util" href="mypage.html" aria-label="위시리스트"><i class="fa-regular fa-heart"></i></a>
-        <a class="site-header__util" href="cart.html" module="Layout_orderBasketcount" aria-label="장바구니"><i class="fa-solid fa-bag-shopping"></i><span class="site-header__badge">2</span></a>
+        <button class="site-header__util" type="button" data-search-open module="Layout_SearchHeaderForm" aria-label="검색"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <a class="site-header__util" href="wishlist.html" aria-label="위시리스트"><i class="fa-regular fa-heart"></i><span class="site-header__badge" data-wish-count hidden>0</span></a>
+        <a class="site-header__util" href="cart.html" module="Layout_orderBasketcount" aria-label="장바구니"><i class="fa-solid fa-bag-shopping"></i><span class="site-header__badge" data-cart-count hidden>0</span></a>
         <a class="site-header__util" href="mypage.html" aria-label="마이페이지"><i class="fa-regular fa-user"></i></a>
       </div>
     </div>
   </header>
   <aside class="mobile-menu" id="mobile-menu" aria-label="모바일 메뉴" aria-hidden="true">
     <button class="mobile-menu__close" aria-label="메뉴 닫기">×</button>
-    <a class="mobile-menu__link" href="index.html">New</a><a class="mobile-menu__link" href="product_list.html">Shop</a><a class="mobile-menu__link" href="lookbook.html">Editorial</a><a class="mobile-menu__link" href="mypage.html">My Élane</a>
+    <a class="mobile-menu__link" href="index.html">New</a><a class="mobile-menu__link" href="product_list.html">Shop</a><a class="mobile-menu__link" href="lookbook.html">Editorial</a><a class="mobile-menu__link" href="wishlist.html">Wishlist</a><a class="mobile-menu__link" href="mypage.html">My Élane</a>
   </aside>
 
   <main>
@@ -68,8 +68,10 @@
 
   <footer class="site-footer" module="Layout_footer"><div class="container"><div class="site-footer__grid"><div class="site-footer__brand-wrap"><div class="site-footer__brand">ÉLANE</div><p class="site-footer__copy">Quiet forms for considered days.<br>Seoul, Republic of Korea.</p></div><div class="site-footer__group"><p class="site-footer__title">CUSTOMER CARE</p><a class="site-footer__link" href="#">Notice</a><a class="site-footer__link" href="#">FAQ</a><a class="site-footer__link" href="#">Shipping & Returns</a></div><div class="site-footer__group"><p class="site-footer__title">ABOUT</p><a class="site-footer__link" href="lookbook.html">Our Story</a><a class="site-footer__link" href="#">Stockists</a><a class="site-footer__link" href="#">Contact</a></div><div class="site-footer__group"><p class="site-footer__title">FOLLOW</p><a class="site-footer__link" href="#">Instagram</a><a class="site-footer__link" href="#">Pinterest</a></div></div><div class="site-footer__bottom"><p>© 2026 ÉLANE. All rights reserved.</p><span>Terms · Privacy · Hosting by Cafe24</span></div></div></footer>
   <button class="top-button" aria-label="페이지 상단으로">TOP</button>
-  <nav class="mobile-bar" aria-label="모바일 빠른 메뉴"><a class="mobile-bar__link" href="index.html"><i class="fa-solid fa-house"></i>HOME</a><a class="mobile-bar__link" href="product_list.html"><i class="fa-solid fa-bars"></i>CATEGORY</a><a class="mobile-bar__link" href="mypage.html"><i class="fa-regular fa-heart"></i>WISH</a><a class="mobile-bar__link" href="cart.html"><i class="fa-solid fa-bag-shopping"></i>CART</a><a class="mobile-bar__link" href="mypage.html"><i class="fa-regular fa-user"></i>MY</a></nav>
+  <nav class="mobile-bar" aria-label="모바일 빠른 메뉴"><a class="mobile-bar__link" href="index.html"><i class="fa-solid fa-house"></i>HOME</a><a class="mobile-bar__link" href="product_list.html"><i class="fa-solid fa-bars"></i>CATEGORY</a><a class="mobile-bar__link" href="wishlist.html"><i class="fa-regular fa-heart"></i>WISH</a><a class="mobile-bar__link" href="cart.html"><i class="fa-solid fa-bag-shopping"></i>CART</a><a class="mobile-bar__link" href="mypage.html"><i class="fa-regular fa-user"></i>MY</a></nav>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="assets/js/store.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

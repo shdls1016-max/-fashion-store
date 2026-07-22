@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Checkout — ÉLANE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="announcement">Secure checkout · Complimentary shipping over ₩100,000</div>
+  <header class="site-header"><div class="site-header__main"><span></span><a class="site-header__logo" href="index.html">ÉLANE</a><a class="checkout-header__back" href="cart.html"><i class="fa-solid fa-arrow-left"></i> Bag</a></div></header>
+  <main class="checkout container" module="Order_Form">
+    <section class="page-hero checkout__hero"><p class="page-hero__eyebrow">Secure payment</p><h1 class="page-hero__title">Checkout</h1></section>
+    <div class="empty-state" data-checkout-empty hidden><i class="fa-solid fa-bag-shopping"></i><h2>결제할 상품이 없습니다.</h2><a class="button" href="product_list.html">상품 둘러보기</a></div>
+    <div class="order-success" data-order-success hidden><i class="fa-regular fa-circle-check"></i><p class="section__eyebrow">Order complete</p><h1>Thank you.</h1><p>주문번호 <strong data-order-number></strong>로 주문이 완료되었습니다.</p><a class="button" href="mypage.html">주문 내역 보기</a></div>
+    <form class="checkout__grid" data-checkout-form>
+      <div class="checkout__form">
+        <fieldset class="form-section"><legend>SHIPPING INFORMATION</legend><div class="form-grid"><label class="form-field form-field--full"><span>받는 분</span><input name="name" required autocomplete="name"></label><label class="form-field"><span>연락처</span><input name="tel" type="tel" required autocomplete="tel"></label><label class="form-field"><span>이메일</span><input name="email" type="email" required autocomplete="email"></label><label class="form-field form-field--full"><span>주소</span><input name="address" required autocomplete="street-address"></label><label class="form-field form-field--full"><span>배송 메모</span><input name="memo" placeholder="배송 시 요청사항을 입력하세요"></label></div></fieldset>
+        <fieldset class="form-section"><legend>PAYMENT</legend><label class="payment-option"><input type="radio" name="payment" value="card" checked><span><i class="fa-regular fa-credit-card"></i> 신용카드</span></label><label class="payment-option"><input type="radio" name="payment" value="bank"><span><i class="fa-solid fa-building-columns"></i> 무통장입금</span></label><p class="form-note">이 페이지는 스킨 기능 확인용 데모입니다. 실제 결제정보는 수집하지 않습니다.</p></fieldset>
+      </div>
+      <aside class="checkout__summary"><h2>Order Summary</h2><div data-checkout-items></div><div class="cart-summary__row cart-summary__row--total"><span>Total</span><strong data-checkout-total>₩0</strong></div><button class="button button--full" type="submit">Place order</button></aside>
+    </form>
+  </main>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
